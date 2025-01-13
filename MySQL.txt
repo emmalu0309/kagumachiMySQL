@@ -113,8 +113,8 @@ CREATE TABLE `website` (
   `websiteid` int(10) PRIMARY KEY AUTO_INCREMENT,
   `websitename` varchar(50),
   `aboutus` varchar(500),
-  `qa` varchar(500),
-  `logo` varchar(100),
+  `qa` varchar(2000),
+  `logo` varchar(300),
   `footerinstagramlink` varchar(100),
   `footerfacebooklink` varchar(100)
 );
