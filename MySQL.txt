@@ -67,7 +67,8 @@ CREATE TABLE `orders` (
   `totalprice` double NOT NULL,
   `logisticsid` int(10),
   `logisticsnumber` varchar(100),
-  `estimateddeliverydate` datetime
+  `estimateddeliverydate` datetime,
+  `orderserial` varchar(100)
 );
 
 CREATE TABLE `orderdetails` (
