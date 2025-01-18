@@ -106,7 +106,9 @@ CREATE TABLE `message` (
   `receiverid` int(10),
   `senderid` int(10),
   `content` varchar(100),
-  `timestamp` bigint
+  `timestamp` bigint,
+  `isfrontread` tinyint(1),
+  `isbackread` tinyint(1)
 );
 
 CREATE TABLE `website` (
