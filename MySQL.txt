@@ -75,6 +75,7 @@ CREATE TABLE `orderdetails` (
   `orderdetailid` int(10) PRIMARY KEY AUTO_INCREMENT,
   `orderid` int(10),
   `productid` int(10),
+  `colorsid` int,
   `quantity` int(10) NOT NULL
 );
 
@@ -204,6 +205,8 @@ ALTER TABLE `orders` ADD FOREIGN KEY (`logisticsid`) REFERENCES `logistics` (`lo
 ALTER TABLE `orderdetails` ADD FOREIGN KEY (`orderid`) REFERENCES `orders` (`orderid`);
 
 ALTER TABLE `orderdetails` ADD FOREIGN KEY (`productid`) REFERENCES `product` (`productid`);
+
+ALTER TABLE `orderdetails` ADD FOREIGN KEY (`colorsid`) REFERENCES `productcolors` (`colorsid`);
 
 ALTER TABLE `productimages` ADD FOREIGN KEY (`productid`) REFERENCES `product` (`productid`);
 
