@@ -93,7 +93,10 @@ CREATE TABLE `reviews` (
   `memberid` int(10),
   `productid` int(10),
   `rating` int(10) NOT NULL,
-  `content` text(100)
+  `content` text(100),
+  `orderid` int(10),
+  `colorsid` int(10),
+  `issubmitted` tinyint(1),
 );
 
 CREATE TABLE `mykeep` (
