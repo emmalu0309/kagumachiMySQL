@@ -189,6 +189,14 @@ CREATE TABLE `productcolors` (
   `updateat` date
 );
 
+CREATE TABLE `autochat` (
+  `autochatid` int(10) PRIMARY KEY AUTO_INCREMENT,
+  `keywords` varchar(100),
+  `answer` varchar(300),
+  `isautochat` tinyint(1)
+);
+
+
 ALTER TABLE `maincategory` ADD FOREIGN KEY (`salesid`) REFERENCES `sales` (`salesid`);
 
 ALTER TABLE `subcategory` ADD FOREIGN KEY (`maincategoryid`) REFERENCES `maincategory` (`maincategoryid`);
