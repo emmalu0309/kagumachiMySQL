@@ -97,7 +97,10 @@ CREATE TABLE `reviews` (
   `memberid` int(10),
   `productid` int(10),
   `rating` int(10) NOT NULL,
-  `content` text(100)
+  `content` text(100),
+  `orderid` int(10),
+  `colorsid` int(10),
+  `issubmitted` tinyint(1),
 );
 
 CREATE TABLE `mykeep` (
@@ -185,6 +188,14 @@ CREATE TABLE `productcolors` (
   `minstock` int(10),
   `updateat` date
 );
+
+CREATE TABLE `autochat` (
+  `autochatid` int(10) PRIMARY KEY AUTO_INCREMENT,
+  `keywords` varchar(100),
+  `answer` varchar(300),
+  `isautochat` tinyint(1)
+);
+
 
 ALTER TABLE `maincategory` ADD FOREIGN KEY (`salesid`) REFERENCES `sales` (`salesid`);
 
