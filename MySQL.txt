@@ -196,6 +196,18 @@ CREATE TABLE `autochat` (
   `isautochat` tinyint(1)
 );
 
+CREATE TABLE home (
+    homeid INT AUTO_INCREMENT PRIMARY KEY,
+    memberid INT,
+    doorwidth DOUBLE,
+    doorheight DOUBLE,
+    elevatorwidth DOUBLE,
+    elevatorheight DOUBLE,
+    elevatordepth DOUBLE,
+    stairwidth DOUBLE,
+    stairheight DOUBLE
+);
+
 
 ALTER TABLE `maincategory` ADD FOREIGN KEY (`salesid`) REFERENCES `sales` (`salesid`);
 
