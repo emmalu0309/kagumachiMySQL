@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-02-03 09:23:59
+-- 產生時間： 2025-02-03 14:45:10
 -- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.2.12
+-- PHP 版本： 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -183,17 +183,17 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`memberid`, `realname`, `gender`, `password`, `email`, `phone`, `birthday`, `postalcode`, `city`, `address`, `registrationdate`, `reset`) VALUES
-(1, '李佳怡', 0, '$2a$10$Nl11up44CSwvWLbISpRCEeRtN8eQ4kE0MU3EgOvMMVMr.9XqRtPoO', 'test001@yahoo.com.tw', '0952-315-752', '1985-01-22', 100, '台北市', '中正區中山南路21號', '2025-01-27', NULL),
-(2, '王浩軒', 1, '$2a$10$4H9G1vulFeukfToKqykm6eVvk0toLLIZIOQE6JXYB5nsDcZ01JVa.', 'test002@yahoo.com.tw', '0952-362-954', '1996-03-15', 200, '基隆市', '仁愛區南榮路198號', '2025-01-27', NULL),
+(1, '李佳怡', 0, '$2a$10$Nl11up44CSwvWLbISpRCEeRtN8eQ4kE0MU3EgOvMMVMr.9XqRtPoO', 'test001@yahoo.com.tw', '0952-315-752', '1985-01-22', 100, '台北市', '中正區中山南路21號', '2024-12-01', NULL),
+(2, '王浩軒', 1, '$2a$10$4H9G1vulFeukfToKqykm6eVvk0toLLIZIOQE6JXYB5nsDcZ01JVa.', 'test002@yahoo.com.tw', '0952-362-954', '1996-03-15', 200, '基隆市', '仁愛區南榮路198號', '2025-01-08', NULL),
 (3, '張婷婷', 0, '$2a$10$5lGm3i.F1cho/QVMfmdJjuuzcTf3vlQXvpNpv1uffH7QEyQ0Vj7s2', 'test003@yahoo.com.tw', '0987-652-999', '1988-06-22', 207, '新北市', '萬里區公館崙52之2號', '2025-01-27', NULL),
-(4, '劉宇航', 1, '$2a$10$Xf/I9j8GMPKH6ftRRmNZJOz8Sy6CmvB2jvBa9flhIURsYjinq2Xvu', 'test004@yahoo.com.tw', '0985-654-333', '1989-12-05', 265, '宜蘭縣', '羅東鎮民生路36號1樓', '2025-01-27', NULL),
-(5, '陳梓涵', 0, '$2a$10$KKapq32AXXUnbY2HFUnz4OSFrniRuaHgBB5YkoBStjJG51sDx9/PS', 'test005@yahoo.com.tw', '0987-556-222', '1994-02-22', 300, '新竹市', '北區金雅七街98號', '2025-01-27', NULL),
+(4, '劉宇航', 1, '$2a$10$Xf/I9j8GMPKH6ftRRmNZJOz8Sy6CmvB2jvBa9flhIURsYjinq2Xvu', 'test004@yahoo.com.tw', '0985-654-333', '1989-12-05', 265, '宜蘭縣', '羅東鎮民生路36號1樓', '2024-12-11', NULL),
+(5, '陳梓涵', 0, '$2a$10$KKapq32AXXUnbY2HFUnz4OSFrniRuaHgBB5YkoBStjJG51sDx9/PS', 'test005@yahoo.com.tw', '0987-556-222', '1994-02-22', 300, '新竹市', '北區金雅七街98號', '2024-12-16', NULL),
 (6, '楊浩然', 1, '$2a$10$.Alpqayc84ev.0q6/UgeROp/3S2x.1RNrp8Z9Xcyl9AAjLX4Rpg5.', 'test006@yahoo.com.tw', '0987-998-665', '1989-12-23', 302, '新竹縣', '竹北市光明六路89號', '2025-01-27', NULL),
-(7, '黃秀英', 0, '$2a$10$qj4bgJUL4lSLGS1ORawux.TtHqC1pl9pRxcQNxp8Evuf85nDDEGvq', 'test007@yahoo.com.tw', '0995-698-654', '1975-05-03', 320, '桃園市', '中壢區萬能路1號', '2025-01-27', NULL),
+(7, '黃秀英', 0, '$2a$10$qj4bgJUL4lSLGS1ORawux.TtHqC1pl9pRxcQNxp8Evuf85nDDEGvq', 'test007@yahoo.com.tw', '0995-698-654', '1975-05-03', 320, '桃園市', '中壢區萬能路1號', '2024-12-16', NULL),
 (8, '趙建華', 1, '$2a$10$CjJ23cZi1.eDEnTvbtiSTuGLkOjQMNW36/W9L82st2MOynaVreLsi', 'test008@yahoo.com.tw', '0987-547-585', '1990-04-01', 350, '苗栗縣', '竹南鎮龍江街372巷133-1號', '2025-01-27', NULL),
 (9, '周秀蘭', 0, '$2a$10$KtHdU4Zk.35zJOSwHcx.P.ewvOyu5mGymB.GtiNp1VaCTnN0ParZ2', 'test009@yahoo.com.tw', '0988-555-666', '1989-02-13', 400, '台中市', '中區三民路二段87號', '2025-01-27', NULL),
 (10, '吳建國', 1, '$2a$10$aEVWOfNp.czdRWnOQnt3DeNH6Kt5xL3nEfKn5RKQWyiqt5AS9stJm', 'test010@yahoo.com.tw', '0985-632-214', '1988-07-12', 500, '彰化縣', '彰化市南郭路一段66號', '2025-01-27', NULL),
-(11, '大偉哥', 1, '$2a$10$7GhQO/KyeprJb/IJiLQsuejB9ROrbH35eYrPGyW1IM.d5WTsma9yu', 'wei0324@yahoo.com.tw', '0988-456-455', '2000-03-24', 500, '彰化縣', '彰化市彰化市', '2025-01-30', NULL);
+(11, '大偉哥', 1, '$2a$10$7GhQO/KyeprJb/IJiLQsuejB9ROrbH35eYrPGyW1IM.d5WTsma9yu', 'wei0324@yahoo.com.tw', '0988-456-455', '2000-03-24', 500, '彰化縣', '彰化市彰化市', '2025-02-02', NULL);
 
 -- --------------------------------------------------------
 
@@ -588,7 +588,9 @@ INSERT INTO `product` (`productid`, `productname`, `productdescription`, `mainca
 (261, 'TERTIAL 檯燈/閱讀燈/工作燈', '檯燈, 閱讀燈, 工作燈', 5, 21, 5, 56, 12, 17, 349, 349, 200, NULL, NULL, NULL, NULL, '2025-02-03'),
 (262, 'HUVUDSPELARE 電競椅', '椅背的網眼材質可讓空氣流通，久坐也能感到舒適\r\n\r\n附安全輪腳，具有感壓煞車裝置，起身時可固定椅子，坐下後自動鬆開鎖定\r\n\r\n可調整座椅高度，讓你坐得更舒適', 3, 14, 25, 60, 123, 54, 1999, 1999, 1200, NULL, NULL, NULL, NULL, '2025-02-03'),
 (263, 'GRUPPSPEL 電競椅', '椅背可調整至5種高度，並內置腰部靠墊，為背部提供舒適支撐，有助你維持正確坐姿\r\n\r\n傾斜度可調整和固定，增加穩固性，也可依不同的坐姿控制\r\n\r\n含高品質泡棉，經久使用後仍維持舒適感', 3, 14, 25, 69, 138, 68, 9990, 9990, NULL, NULL, NULL, NULL, NULL, '2025-02-03'),
-(264, 'STYRSPEL 電競椅', '椅背的網狀物料，能讓空氣流通，亦方便電競比賽時移動\r\n\r\n椅子為你的前臂提供舒適的承托，加上軟墊扶手可以向上、下、前、後和向內進行調校，減低你肩頸的壓力', 3, 14, 25, 71, 142, 69, 8000, 8000, 4500, NULL, NULL, NULL, NULL, '2025-02-03');
+(264, 'STYRSPEL 電競椅', '椅背的網狀物料，能讓空氣流通，亦方便電競比賽時移動\r\n\r\n椅子為你的前臂提供舒適的承托，加上軟墊扶手可以向上、下、前、後和向內進行調校，減低你肩頸的壓力', 3, 14, 25, 71, 142, 69, 8000, 8000, 4500, NULL, NULL, NULL, NULL, '2025-02-03'),
+(265, 'MATCHSPEL 電競椅', '傾斜度可調整和固定，增加穩固性，也可依不同的坐姿控制\r\n\r\n附安全輪腳，具有感壓煞車裝置，起身時可固定椅子，坐下後自動鬆開鎖定\r\n\r\n含高品質泡棉，經久使用後仍維持舒適感', 3, 14, 25, 66, 132, 66, 4999, 4999, 2689, NULL, NULL, NULL, NULL, '2025-02-03'),
+(266, 'MATCHSPEL 電競椅', '傾斜度可調整和固定，增加穩固性，也可依不同的坐姿控制\r\n\r\n附安全輪腳，具有感壓煞車裝置，起身時可固定椅子，坐下後自動鬆開鎖定\r\n\r\n含高品質泡棉，經久使用後仍維持舒適感', 3, 14, 25, 66, 132, 66, 5000, 5000, 2785, NULL, NULL, NULL, NULL, '2025-02-03');
 
 -- --------------------------------------------------------
 
@@ -877,7 +879,9 @@ INSERT INTO `productcolors` (`colorsid`, `productid`, `colorname`, `stock`, `min
 (271, 263, '黑色-灰色', 22, 10, '2025-02-03'),
 (272, 263, '米色', 12, 10, '2025-02-03'),
 (273, 264, '藍色/淺灰色', 36, 10, '2025-02-03'),
-(274, 264, '深灰色/灰色', 22, 10, '2025-02-03');
+(274, 264, '深灰色/灰色', 22, 10, '2025-02-03'),
+(275, 265, '黑色', 25, 10, '2025-02-03'),
+(276, 266, '淺灰色', 22, 10, '2025-02-03');
 
 -- --------------------------------------------------------
 
@@ -1420,45 +1424,45 @@ INSERT INTO `productimages` (`imageid`, `productid`, `colorsid`, `imageurl`, `is
 (518, 178, 179, 'https://www.ikea.com.tw/dairyfarm/tw/images/268/0926877_PE789566_S4.webp', 1, '2025-01-27'),
 (519, 178, 179, 'https://www.ikea.com.tw/dairyfarm/tw/images/463/0946318_PH172952_S4.webp', 0, '2025-01-27'),
 (520, 178, 179, 'https://www.ikea.com.tw/dairyfarm/tw/images/952/0995228_PE821627_S4.webp', 0, '2025-01-27'),
-(521, 180, 180, 'https://www.ikea.com.tw/dairyfarm/tw/images/681/1068137_PE852981_S4.webp', 0, '2025-01-27'),
+(521, 180, 180, 'https://www.ikea.com.tw/dairyfarm/tw/images/681/1068137_PE852981_S4.webp', 1, '2025-01-27'),
 (522, 180, 180, 'https://www.ikea.com.tw/dairyfarm/tw/images/681/1068134_PE852980_S4.webp', 0, '2025-01-27'),
-(523, 180, 180, 'https://www.ikea.com.tw/dairyfarm/tw/images/859/1085963_PE860285_S4.webp', 1, '2025-01-27'),
+(523, 180, 180, 'https://www.ikea.com.tw/dairyfarm/tw/images/859/1085963_PE860285_S4.webp', 0, '2025-01-27'),
 (524, 181, 181, 'https://www.ikea.com.tw/dairyfarm/tw/images/163/1016338_PE830329_S4.webp', 1, '2025-01-27'),
 (525, 181, 181, 'https://www.ikea.com.tw/dairyfarm/tw/images/805/1080559_PE858068_S4.webp', 0, '2025-01-27'),
 (526, 181, 181, 'https://www.ikea.com.tw/dairyfarm/tw/images/280/1028051_PE835191_S4.webp', 0, '2025-01-27'),
-(527, 182, 182, 'https://www.ikea.com.tw/dairyfarm/tw/images/848/1184815_PE898079_S4.webp', 0, '2025-01-27'),
+(527, 182, 182, 'https://www.ikea.com.tw/dairyfarm/tw/images/848/1184815_PE898079_S4.webp', 1, '2025-01-27'),
 (528, 182, 182, 'https://www.ikea.com.tw/dairyfarm/tw/images/930/1193057_PE901326_S4.webp', 0, '2025-01-27'),
-(529, 182, 182, 'https://www.ikea.com.tw/dairyfarm/tw/images/941/1194180_PE901853_S4.webp', 1, '2025-01-27'),
+(529, 182, 182, 'https://www.ikea.com.tw/dairyfarm/tw/images/941/1194180_PE901853_S4.webp', 0, '2025-01-27'),
 (530, 182, 183, 'https://www.ikea.com.tw/dairyfarm/tw/images/847/1184759_PE898077_S4.webp', 1, '2025-01-27'),
 (531, 182, 183, 'https://www.ikea.com.tw/dairyfarm/tw/images/993/1199306_PE904424_S4.webp', 0, '2025-01-27'),
 (532, 182, 183, 'https://www.ikea.com.tw/dairyfarm/tw/images/941/1194180_PE901853_S4.webp', 0, '2025-01-27'),
-(533, 184, 184, 'https://www.ikea.com.tw/dairyfarm/tw/images/287/0728703_PE736412_S4.webp', 0, '2025-01-27'),
+(533, 184, 184, 'https://www.ikea.com.tw/dairyfarm/tw/images/287/0728703_PE736412_S4.webp', 1, '2025-01-27'),
 (534, 184, 184, 'https://www.ikea.com.tw/dairyfarm/tw/images/251/0325123_PE518022_S4.webp', 0, '2025-01-27'),
-(535, 184, 184, 'https://www.ikea.com.tw/dairyfarm/tw/images/877/0587742_PE672753_S4.webp', 1, '2025-01-27'),
+(535, 184, 184, 'https://www.ikea.com.tw/dairyfarm/tw/images/877/0587742_PE672753_S4.webp', 0, '2025-01-27'),
 (536, 185, 185, 'https://www.ikea.com.tw/dairyfarm/tw/images/240/1124098_PE875013_S4.webp', 1, '2025-01-27'),
 (537, 185, 185, 'https://www.ikea.com.tw/dairyfarm/tw/images/240/1124097_PE875010_S4.webp', 0, '2025-01-27'),
 (538, 185, 185, 'https://www.ikea.com.tw/dairyfarm/tw/images/242/1124209_PE875072_S4.webp', 0, '2025-01-27'),
-(539, 184, 186, 'https://www.ikea.com.tw/dairyfarm/tw/images/020/0602041_PE680112_S4.webp', 0, '2025-01-27'),
+(539, 184, 186, 'https://www.ikea.com.tw/dairyfarm/tw/images/020/0602041_PE680112_S4.webp', 1, '2025-01-27'),
 (540, 184, 186, 'https://www.ikea.com.tw/dairyfarm/tw/images/425/0842508_PE680106_S4.webp', 0, '2025-01-27'),
-(541, 184, 186, 'https://www.ikea.com.tw/dairyfarm/tw/images/877/0587742_PE672753_S4.webp', 1, '2025-01-27'),
+(541, 184, 186, 'https://www.ikea.com.tw/dairyfarm/tw/images/877/0587742_PE672753_S4.webp', 0, '2025-01-27'),
 (542, 187, 187, 'https://www.ikea.com.tw/dairyfarm/tw/images/207/1320722_PE941328_S4.webp', 1, '2025-01-27'),
 (543, 187, 187, 'https://www.ikea.com.tw/dairyfarm/tw/images/207/1320719_PE941331_S4.webp', 0, '2025-01-27'),
 (544, 187, 187, 'https://www.ikea.com.tw/dairyfarm/tw/images/256/1325626_PE943968_S4.webp', 0, '2025-01-27'),
-(545, 187, 188, 'https://www.ikea.com.tw/dairyfarm/tw/images/207/1320736_PE941339_S4.webp', 0, '2025-01-27'),
+(545, 187, 188, 'https://www.ikea.com.tw/dairyfarm/tw/images/207/1320736_PE941339_S4.webp', 1, '2025-01-27'),
 (546, 187, 188, 'https://www.ikea.com.tw/dairyfarm/tw/images/207/1320732_PE941337_S4.webp', 0, '2025-01-27'),
-(547, 187, 188, 'https://www.ikea.com.tw/dairyfarm/tw/images/256/1325626_PE943968_S4.webp', 1, '2025-01-27'),
+(547, 187, 188, 'https://www.ikea.com.tw/dairyfarm/tw/images/256/1325626_PE943968_S4.webp', 0, '2025-01-27'),
 (548, 189, 189, 'https://www.ikea.com.tw/dairyfarm/tw/images/072/1007236_PE825956_S4.webp', 1, '2025-01-27'),
 (549, 189, 189, 'https://www.ikea.com.tw/dairyfarm/tw/images/805/1080598_PE858088_S4.webp', 0, '2025-01-27'),
 (550, 189, 189, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009349_PE835293_S4.webp', 0, '2025-01-27'),
-(551, 190, 190, 'https://www.ikea.com.tw/dairyfarm/tw/images/072/1007241_PE825960_S4.webp', 0, '2025-01-27'),
+(551, 190, 190, 'https://www.ikea.com.tw/dairyfarm/tw/images/072/1007241_PE825960_S4.webp', 1, '2025-01-27'),
 (552, 190, 190, 'https://www.ikea.com.tw/dairyfarm/tw/images/213/1121378_PE874225_S4.webp', 0, '2025-01-27'),
-(553, 190, 190, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009342_PE827553_S4.webp', 1, '2025-01-27'),
+(553, 190, 190, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009342_PE827553_S4.webp', 0, '2025-01-27'),
 (554, 190, 191, 'https://www.ikea.com.tw/dairyfarm/tw/images/383/1338383_PE948288_S4.webp', 1, '2025-01-27'),
 (555, 190, 191, 'https://www.ikea.com.tw/dairyfarm/tw/images/383/1338390_PE948289_S4.webp', 0, '2025-01-27'),
 (556, 190, 191, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009342_PE827553_S4.webp', 0, '2025-01-27'),
-(557, 190, 192, 'https://www.ikea.com.tw/dairyfarm/tw/images/072/1007238_PE825958_S4.webp', 0, '2025-01-27'),
+(557, 190, 192, 'https://www.ikea.com.tw/dairyfarm/tw/images/072/1007238_PE825958_S4.webp', 1, '2025-01-27'),
 (558, 190, 192, 'https://www.ikea.com.tw/dairyfarm/tw/images/213/1121377_PE874224_S4.webp', 0, '2025-01-27'),
-(559, 190, 192, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009342_PE827553_S4.webp', 1, '2025-01-27'),
+(559, 190, 192, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009342_PE827553_S4.webp', 0, '2025-01-27'),
 (560, 189, 193, 'https://www.ikea.com.tw/dairyfarm/tw/images/071/1007198_PE825954_S4.webp', 1, '2025-01-27'),
 (561, 189, 193, 'https://www.ikea.com.tw/dairyfarm/tw/images/602/1160255_PE888830_S4.webp', 0, '2025-01-27'),
 (562, 189, 193, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/1009349_PE835293_S4.webp', 0, '2025-01-27'),
@@ -1468,27 +1472,27 @@ INSERT INTO `productimages` (`imageid`, `productid`, `colorsid`, `imageurl`, `is
 (578, 199, 199, 'https://www.ikea.com.tw/dairyfarm/tw/images/481/0948110_PE798867_S4.webp', 1, '2025-01-27'),
 (579, 199, 199, 'https://www.ikea.com.tw/dairyfarm/tw/images/481/0948114_PE798869_S4.webp', 0, '2025-01-27'),
 (580, 199, 199, 'https://www.ikea.com.tw/dairyfarm/tw/images/951/0995146_PE821591_S4.webp', 0, '2025-01-27'),
-(581, 200, 200, 'https://www.ikea.com.tw/dairyfarm/tw/images/481/0948118_PE798873_S4.webp', 0, '2025-01-27'),
+(581, 200, 200, 'https://www.ikea.com.tw/dairyfarm/tw/images/481/0948118_PE798873_S4.webp', 1, '2025-01-27'),
 (582, 200, 200, 'https://www.ikea.com.tw/dairyfarm/tw/images/481/0948119_PE798874_S4.webp', 0, '2025-01-27'),
-(583, 200, 200, 'https://www.ikea.com.tw/dairyfarm/tw/images/951/0995147_PE821590_S4.webp', 1, '2025-01-27'),
+(583, 200, 200, 'https://www.ikea.com.tw/dairyfarm/tw/images/951/0995147_PE821590_S4.webp', 0, '2025-01-27'),
 (584, 201, 201, 'https://www.ikea.com.tw/dairyfarm/tw/images/274/0727489_PE735714_S4.webp', 1, '2025-01-27'),
 (585, 201, 201, 'https://www.ikea.com.tw/dairyfarm/tw/images/739/0873922_PE680516_S4.webp', 0, '2025-01-27'),
 (586, 201, 201, 'https://www.ikea.com.tw/dairyfarm/tw/images/957/0995743_PE821835_S4.webp', 0, '2025-01-27'),
-(587, 201, 202, 'https://www.ikea.com.tw/dairyfarm/tw/images/274/0727485_PE735710_S4.webp', 0, '2025-01-27'),
+(587, 201, 202, 'https://www.ikea.com.tw/dairyfarm/tw/images/274/0727485_PE735710_S4.webp', 1, '2025-01-27'),
 (588, 201, 202, 'https://www.ikea.com.tw/dairyfarm/tw/images/745/0874580_PE680502_S4.webp', 0, '2025-01-27'),
-(589, 201, 202, 'https://www.ikea.com.tw/dairyfarm/tw/images/957/0995743_PE821835_S4.webp', 1, '2025-01-27'),
+(589, 201, 202, 'https://www.ikea.com.tw/dairyfarm/tw/images/957/0995743_PE821835_S4.webp', 0, '2025-01-27'),
 (590, 203, 203, 'https://www.ikea.com.tw/dairyfarm/tw/images/274/0727487_PE735712_S4.webp', 1, '2025-01-27'),
 (591, 203, 203, 'https://www.ikea.com.tw/dairyfarm/tw/images/745/0874546_PE680514_S4.webp', 0, '2025-01-27'),
 (592, 203, 203, 'https://www.ikea.com.tw/dairyfarm/tw/images/957/0995757_PE821837_S4.webp', 0, '2025-01-27'),
-(593, 204, 204, 'https://www.ikea.com.tw/dairyfarm/tw/images/027/0802778_PE768589_S4.webp', 0, '2025-01-27'),
+(593, 204, 204, 'https://www.ikea.com.tw/dairyfarm/tw/images/027/0802778_PE768589_S4.webp', 1, '2025-01-27'),
 (594, 204, 204, 'https://www.ikea.com.tw/dairyfarm/tw/images/027/0802777_PE768590_S4.webp', 0, '2025-01-27'),
-(595, 204, 204, 'https://www.ikea.com.tw/dairyfarm/tw/images/421/1342162_PE949011_S4.webp', 1, '2025-01-27'),
+(595, 204, 204, 'https://www.ikea.com.tw/dairyfarm/tw/images/421/1342162_PE949011_S4.webp', 0, '2025-01-27'),
 (596, 204, 205, 'https://www.ikea.com.tw/dairyfarm/tw/images/801/0780171_PE767765_S4.webp', 1, '2025-01-27'),
 (597, 204, 205, 'https://www.ikea.com.tw/dairyfarm/tw/images/812/0781222_PE760579_S4.webp', 0, '2025-01-27'),
 (598, 204, 205, 'https://www.ikea.com.tw/dairyfarm/tw/images/421/1342162_PE949011_S4.webp', 0, '2025-01-27'),
-(599, 206, 206, 'https://www.ikea.com.tw/dairyfarm/tw/images/095/1109579_PE870069_S4.webp', 0, '2025-01-27'),
+(599, 206, 206, 'https://www.ikea.com.tw/dairyfarm/tw/images/095/1109579_PE870069_S4.webp', 1, '2025-01-27'),
 (600, 206, 206, 'https://www.ikea.com.tw/dairyfarm/tw/images/398/1139828_PE880475_S4.webp', 0, '2025-01-27'),
-(601, 206, 206, 'https://www.ikea.com.tw/dairyfarm/tw/images/619/1161932_PE889588_S4.webp', 1, '2025-01-27'),
+(601, 206, 206, 'https://www.ikea.com.tw/dairyfarm/tw/images/619/1161932_PE889588_S4.webp', 0, '2025-01-27'),
 (602, 207, 207, 'https://www.ikea.com.tw/dairyfarm/tw/images/095/1109582_PE870070_S4.webp', 1, '2025-01-27'),
 (603, 207, 207, 'https://www.ikea.com.tw/dairyfarm/tw/images/398/1139830_PE880476_S4.webp', 0, '2025-01-27'),
 (604, 207, 207, 'https://www.ikea.com.tw/dairyfarm/tw/images/619/1161932_PE889588_S4.webp', 0, '2025-01-27'),
@@ -1646,7 +1650,11 @@ INSERT INTO `productimages` (`imageid`, `productid`, `colorsid`, `imageurl`, `is
 (758, 264, 273, 'https://www.ikea.com.tw/dairyfarm/tw/images/153/1115360_PE872044_S4.webp', 1, '2025-02-03'),
 (759, 264, 273, 'https://www.ikea.com.tw/dairyfarm/tw/images/388/1138885_PE880122_S4.webp', 0, '2025-02-03'),
 (760, 264, 274, 'https://www.ikea.com.tw/dairyfarm/tw/images/153/1115362_PE872046_S4.webp', 1, '2025-02-03'),
-(761, 264, 274, 'https://www.ikea.com.tw/dairyfarm/tw/images/388/1138894_PE880127_S4.webp', 0, '2025-02-03');
+(761, 264, 274, 'https://www.ikea.com.tw/dairyfarm/tw/images/388/1138894_PE880127_S4.webp', 0, '2025-02-03'),
+(762, 265, 275, 'https://www.ikea.com.tw/dairyfarm/tw/images/856/0985645_PE816716_S4.webp', 1, '2025-02-03'),
+(763, 265, 275, 'https://www.ikea.com.tw/dairyfarm/tw/images/978/0997853_PE822829_S4.webp', 0, '2025-02-03'),
+(764, 266, 276, 'https://www.ikea.com.tw/dairyfarm/tw/images/489/1248931_PE923288_S4.webp', 1, '2025-02-03'),
+(765, 266, 276, 'https://www.ikea.com.tw/dairyfarm/tw/images/360/1236055_PE917427_S4.webp', 0, '2025-02-03');
 
 -- --------------------------------------------------------
 
@@ -2278,19 +2286,19 @@ ALTER TABLE `orders`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=267;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `productcolors`
 --
 ALTER TABLE `productcolors`
-  MODIFY `colorsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
+  MODIFY `colorsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `productimages`
 --
 ALTER TABLE `productimages`
-  MODIFY `imageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=762;
+  MODIFY `imageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=766;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reviews`
