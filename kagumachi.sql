@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost:8889
--- 產生時間： 2025 年 02 月 02 日 15:08
--- 伺服器版本： 8.0.35
--- PHP 版本： 8.2.20
+-- 主機： 127.0.0.1
+-- 產生時間： 2025-02-03 04:13:31
+-- 伺服器版本： 10.4.32-MariaDB
+-- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `autochat` (
-  `autochatid` int NOT NULL,
-  `keywords` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `answer` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `autochatid` int(11) NOT NULL,
+  `keywords` varchar(100) DEFAULT NULL,
+  `answer` varchar(300) DEFAULT NULL,
   `isautochat` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -51,11 +51,11 @@ INSERT INTO `autochat` (`autochatid`, `keywords`, `answer`, `isautochat`) VALUES
 --
 
 CREATE TABLE `carts` (
-  `cartsid` int NOT NULL,
-  `memberid` int DEFAULT NULL,
-  `productid` int DEFAULT NULL,
-  `colorsid` int DEFAULT NULL,
-  `quantity` int NOT NULL,
+  `cartsid` int(11) NOT NULL,
+  `memberid` int(11) DEFAULT NULL,
+  `productid` int(11) DEFAULT NULL,
+  `colorsid` int(11) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
   `ispurchase` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,11 +66,11 @@ CREATE TABLE `carts` (
 --
 
 CREATE TABLE `finance` (
-  `financeid` int NOT NULL,
+  `financeid` int(11) NOT NULL,
   `date` date DEFAULT NULL,
-  `item` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `details` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `money` int DEFAULT NULL
+  `item` varchar(100) DEFAULT NULL,
+  `details` varchar(100) DEFAULT NULL,
+  `money` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -80,19 +80,19 @@ CREATE TABLE `finance` (
 --
 
 CREATE TABLE `incomestatement` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `startdate` date NOT NULL,
   `enddate` date NOT NULL,
-  `maincategoryid` int DEFAULT NULL,
-  `subcategoryid` int DEFAULT NULL,
-  `totalrevenue` double NOT NULL DEFAULT '0',
-  `totalcost` double NOT NULL DEFAULT '0',
-  `operatingprofit` double GENERATED ALWAYS AS ((`totalrevenue` - `totalcost`)) STORED,
-  `nonoperatingincomeandexpense` double NOT NULL DEFAULT '0',
-  `incomebeforetax` double GENERATED ALWAYS AS ((`operatingprofit` + `nonoperatingincomeandexpense`)) STORED,
-  `tax` double NOT NULL DEFAULT '0',
-  `netincome` double GENERATED ALWAYS AS ((`incomebeforetax` - `tax`)) STORED,
-  `createdat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `maincategoryid` int(11) DEFAULT NULL,
+  `subcategoryid` int(11) DEFAULT NULL,
+  `totalrevenue` double NOT NULL DEFAULT 0,
+  `totalcost` double NOT NULL DEFAULT 0,
+  `operatingprofit` double GENERATED ALWAYS AS (`totalrevenue` - `totalcost`) STORED,
+  `nonoperatingincomeandexpense` double NOT NULL DEFAULT 0,
+  `incomebeforetax` double GENERATED ALWAYS AS (`operatingprofit` + `nonoperatingincomeandexpense`) STORED,
+  `tax` double NOT NULL DEFAULT 0,
+  `netincome` double GENERATED ALWAYS AS (`incomebeforetax` - `tax`) STORED,
+  `createdat` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -102,8 +102,8 @@ CREATE TABLE `incomestatement` (
 --
 
 CREATE TABLE `logistics` (
-  `logisticsid` int NOT NULL,
-  `comname` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `logisticsid` int(11) NOT NULL,
+  `comname` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -121,10 +121,10 @@ INSERT INTO `logistics` (`logisticsid`, `comname`) VALUES
 --
 
 CREATE TABLE `maincategory` (
-  `maincategoryid` int NOT NULL,
-  `salesid` int DEFAULT NULL,
-  `categoryname` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `maincategoryid` int(11) NOT NULL,
+  `salesid` int(11) DEFAULT NULL,
+  `categoryname` varchar(100) NOT NULL,
+  `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -146,18 +146,18 @@ INSERT INTO `maincategory` (`maincategoryid`, `salesid`, `categoryname`, `status
 --
 
 CREATE TABLE `members` (
-  `memberid` int NOT NULL,
-  `realname` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `gender` int DEFAULT NULL,
-  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `phone` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `memberid` int(11) NOT NULL,
+  `realname` varchar(100) DEFAULT NULL,
+  `gender` int(11) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(100) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
-  `postalcode` int DEFAULT NULL,
-  `city` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `postalcode` int(11) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
   `registrationdate` date DEFAULT NULL,
-  `reset` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `reset` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -185,11 +185,11 @@ INSERT INTO `members` (`memberid`, `realname`, `gender`, `password`, `email`, `p
 --
 
 CREATE TABLE `message` (
-  `messageid` int NOT NULL,
-  `receiverid` int DEFAULT NULL,
-  `senderid` int DEFAULT NULL,
-  `content` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `timestamp` bigint DEFAULT NULL,
+  `messageid` int(11) NOT NULL,
+  `receiverid` int(11) DEFAULT NULL,
+  `senderid` int(11) DEFAULT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `timestamp` bigint(20) DEFAULT NULL,
   `isfrontread` tinyint(1) DEFAULT NULL,
   `isbackread` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -219,9 +219,9 @@ INSERT INTO `message` (`messageid`, `receiverid`, `senderid`, `content`, `timest
 --
 
 CREATE TABLE `mykeep` (
-  `mykeepid` int NOT NULL,
-  `memberid` int DEFAULT NULL,
-  `productid` int DEFAULT NULL
+  `mykeepid` int(11) NOT NULL,
+  `memberid` int(11) DEFAULT NULL,
+  `productid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -240,44 +240,44 @@ INSERT INTO `mykeep` (`mykeepid`, `memberid`, `productid`) VALUES
 --
 
 CREATE TABLE `orderdetails` (
-  `orderdetailid` int NOT NULL,
-  `orderid` int DEFAULT NULL,
-  `productid` int DEFAULT NULL,
-  `colorsid` int DEFAULT NULL,
-  `quantity` int NOT NULL,
-  `price` int DEFAULT NULL
+  `orderdetailid` int(11) NOT NULL,
+  `orderid` int(11) DEFAULT NULL,
+  `productid` int(11) DEFAULT NULL,
+  `colorsid` int(11) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `orderdetails`
 --
 
-INSERT INTO `orderdetails` (`orderdetailid`, `orderid`, `productid`, `colorsid`, `quantity`) VALUES
-(1, 1, 11, 11, 1),
-(2, 1, 5, 5, 1),
-(3, 2, 118, 118, 1),
-(4, 2, 108, 108, 2),
-(5, 3, 182, 182, 1),
-(6, 3, 178, 178, 2),
-(7, 4, 204, 204, 1),
-(8, 4, 207, 207, 2),
-(9, 5, 221, 221, 1),
-(10, 5, 219, 219, 2),
-(11, 6, 236, 236, 1),
-(12, 6, 237, 237, 2),
-(13, 7, 29, 29, 1),
-(14, 7, 25, 25, 2),
-(15, 8, 143, 143, 1),
-(16, 8, 141, 141, 2),
-(17, 9, 184, 184, 1),
-(18, 9, 185, 185, 2),
-(19, 10, 211, 211, 1),
-(20, 10, 213, 213, 2),
-(21, 11, 226, 226, 1),
-(22, 11, 225, 225, 2),
-(23, 12, 241, 241, 2),
-(24, 12, 240, 240, 2),
-(25, 13, 207, 207, 1);
+INSERT INTO `orderdetails` (`orderdetailid`, `orderid`, `productid`, `colorsid`, `quantity`, `price`) VALUES
+(1, 1, 11, 11, 1, NULL),
+(2, 1, 5, 5, 1, NULL),
+(3, 2, 118, 118, 1, NULL),
+(4, 2, 108, 108, 2, NULL),
+(5, 3, 182, 182, 1, NULL),
+(6, 3, 178, 178, 2, NULL),
+(7, 4, 204, 204, 1, NULL),
+(8, 4, 207, 207, 2, NULL),
+(9, 5, 221, 221, 1, NULL),
+(10, 5, 219, 219, 2, NULL),
+(11, 6, 236, 236, 1, NULL),
+(12, 6, 237, 237, 2, NULL),
+(13, 7, 29, 29, 1, NULL),
+(14, 7, 25, 25, 2, NULL),
+(15, 8, 143, 143, 1, NULL),
+(16, 8, 141, 141, 2, NULL),
+(17, 9, 184, 184, 1, NULL),
+(18, 9, 185, 185, 2, NULL),
+(19, 10, 211, 211, 1, NULL),
+(20, 10, 213, 213, 2, NULL),
+(21, 11, 226, 226, 1, NULL),
+(22, 11, 225, 225, 2, NULL),
+(23, 12, 241, 241, 2, NULL),
+(24, 12, 240, 240, 2, NULL),
+(25, 13, 207, 207, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -286,20 +286,20 @@ INSERT INTO `orderdetails` (`orderdetailid`, `orderid`, `productid`, `colorsid`,
 --
 
 CREATE TABLE `orders` (
-  `orderid` int NOT NULL,
-  `memberid` int DEFAULT NULL,
-  `recipient` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ordercity` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `district` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `phone` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `paymentmethod` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `shippingmethod` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `orderid` int(11) NOT NULL,
+  `memberid` int(11) DEFAULT NULL,
+  `recipient` varchar(100) DEFAULT NULL,
+  `ordercity` varchar(100) DEFAULT NULL,
+  `district` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `paymentmethod` varchar(100) DEFAULT NULL,
+  `shippingmethod` varchar(100) DEFAULT NULL,
   `totalprice` double NOT NULL,
-  `orderserial` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `logisticsid` int DEFAULT NULL,
-  `logisticsnumber` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `orderstatus` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `orderserial` varchar(100) DEFAULT NULL,
+  `logisticsid` int(11) DEFAULT NULL,
+  `logisticsnumber` varchar(100) DEFAULT NULL,
+  `orderstatus` varchar(50) DEFAULT NULL,
   `orderdate` date NOT NULL,
   `deliverydate` date DEFAULT NULL,
   `estimateddeliverydate` datetime DEFAULT NULL
@@ -331,22 +331,22 @@ INSERT INTO `orders` (`orderid`, `memberid`, `recipient`, `ordercity`, `district
 --
 
 CREATE TABLE `product` (
-  `productid` int NOT NULL,
-  `productname` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `productdescription` varchar(10000) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `maincategoryid` int DEFAULT NULL,
-  `subcategoryid` int DEFAULT NULL,
-  `supplierid` int DEFAULT NULL,
+  `productid` int(11) NOT NULL,
+  `productname` varchar(100) NOT NULL,
+  `productdescription` varchar(10000) DEFAULT NULL,
+  `maincategoryid` int(11) DEFAULT NULL,
+  `subcategoryid` int(11) DEFAULT NULL,
+  `supplierid` int(11) DEFAULT NULL,
   `width` double DEFAULT NULL,
   `height` double DEFAULT NULL,
   `depth` double DEFAULT NULL,
-  `unitprice` int DEFAULT NULL,
-  `discountprice` int DEFAULT NULL,
-  `productcost` int DEFAULT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `unitsold` int DEFAULT NULL,
+  `unitprice` int(11) DEFAULT NULL,
+  `discountprice` int(11) DEFAULT NULL,
+  `productcost` int(11) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  `unitsold` int(11) DEFAULT NULL,
   `rating` double DEFAULT NULL,
-  `reviewcount` int DEFAULT NULL,
+  `reviewcount` int(11) DEFAULT NULL,
   `updateat` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -506,9 +506,9 @@ INSERT INTO `product` (`productid`, `productname`, `productdescription`, `mainca
 (180, 'STEFAN 餐椅', '椅套可除下清洗，有小朋友家庭的好選擇\r\n\r\n經常曬晾或洗濯椅套，可以讓椅套保持清爽乾淨，更可減少家居的灰塵和污垢\r\n\r\n只有6枚螺絲，組裝容易\r\n\r\n實木椅框堅固耐用\r\n\r\n無扶手設計讓你可以把餐椅完全推入桌底，節省空間', 3, 11, 14, 42, 90, 49, 1199, 1199, 600, NULL, NULL, NULL, NULL, '2025-01-27'),
 (181, 'KÄTTIL 餐椅', '用膳完畢，可除下餐椅套可放入機洗，清潔容易\r\n\r\n一體化餐椅套有魔鬼氈，方便除下更換和清洗\r\n\r\n經常曬晾或洗濯椅套，可以讓椅套保持清爽乾淨，更可減少家居的灰塵和污垢\r\n\r\n實木椅框堅固耐用\r\n\r\n無扶手設計讓你可以把餐椅完全推入桌底，節省空間', 3, 11, 14, 46, 89, 52, 1499, 1499, 800, NULL, NULL, NULL, NULL, '2025-01-27'),
 (182, 'BALTSAR 餐椅', '弧形的座椅設計，配合圓形的背墊，讓你坐得舒適\r\n\r\n容易組裝，不需使用工具或螺絲\r\n\r\n椅腳以實心櫸木作製造，不單堅固而且增加了質感\r\n\r\n容易清潔', 3, 11, 14, 58, 85, 57, 4999, 4999, 1200, NULL, NULL, NULL, NULL, '2025-01-27'),
-(184, 'LANDSKRONA 椅凳', '表面以GRANN覆蓋，它是一種柔軟、順滑而結實的牛皮，會隨歲月有著天然變化。 其他表面則用上合成皮革BOMSTAD\r\n\r\n可當作額外座椅或舒適的沙發延伸組件\r\n\r\n椅墊以高回彈泡棉和聚酯纖維填充，提供絕佳的舒適感\r\n\r\n提供10年品質保證；欲知更多細則，請參閱品質保證書', 3, 13, 24, 65, 44, 77, 8499, 8499, 1200, NULL, NULL, NULL, NULL, '2025-01-27'),
-(185, 'KIVIK 收納椅凳', '讓雙腳舒適地放在這款椅櫈上休息，亦可當成額外座椅或舒適的沙發延伸\r\n\r\n椅凳內有寬敞的儲物空間，方便你拿到常用的東西，同時保持椅凳附近乾淨整齊\r\n\r\nTresund質地整潔，以100％再生聚酯纖維和棉質製造。 打造雙色效果，散發微微光澤，舒適而且十分柔軟\r\n\r\n布套可用洗衣機清洗，且容易拆下及裝回，容易保持乾淨\r\n\r\n10年品質保證，詳情請參閱品質保證單張', 3, 13, 24, 90, 43, 70, 6999, 6999, 800, NULL, NULL, NULL, NULL, '2025-01-27'),
-(187, 'FÖRLUNDA 椅凳', '可疊起存放，不會佔用太多地方，可多買數張來招待訪客\r\n\r\n可以輕鬆移動椅凳到你需要的地方，作為額外椅子使用。例如:為訪客提供座位\r\n\r\n10年品質保證，詳情請參閱品質保證單張\r\n\r\n可做為擱腳凳、座椅或在上面放置托盤，當作桌子使用\r\n\r\n布套經過處理，讓飛濺物質不會滲入纖維；而是停留在表面，用乾布一抹即能清潔，簡單容易\r\n\r\n布套以Tonerud製造。它是一種柔軟的聚酯纖維，表面光滑，而且帶有兩種混色效果', 3, 13, 24, 44, 41, 0, 1799, 1799, 400, NULL, NULL, NULL, NULL, '2025-01-27'),
+(184, 'LANDSKRONA 椅凳', '表面以GRANN覆蓋，它是一種柔軟、順滑而結實的牛皮，會隨歲月有著天然變化。 其他表面則用上合成皮革BOMSTAD\r\n\r\n可當作額外座椅或舒適的沙發延伸組件\r\n\r\n椅墊以高回彈泡棉和聚酯纖維填充，提供絕佳的舒適感\r\n\r\n提供10年品質保證；欲知更多細則，請參閱品質保證書', 3, 12, 24, 65, 44, 77, 8499, 8499, 1200, NULL, NULL, NULL, NULL, '2025-01-27'),
+(185, 'KIVIK 收納椅凳', '讓雙腳舒適地放在這款椅櫈上休息，亦可當成額外座椅或舒適的沙發延伸\r\n\r\n椅凳內有寬敞的儲物空間，方便你拿到常用的東西，同時保持椅凳附近乾淨整齊\r\n\r\nTresund質地整潔，以100％再生聚酯纖維和棉質製造。 打造雙色效果，散發微微光澤，舒適而且十分柔軟\r\n\r\n布套可用洗衣機清洗，且容易拆下及裝回，容易保持乾淨\r\n\r\n10年品質保證，詳情請參閱品質保證單張', 3, 12, 24, 90, 43, 70, 6999, 6999, 800, NULL, NULL, NULL, NULL, '2025-01-27'),
+(187, 'FÖRLUNDA 椅凳', '可疊起存放，不會佔用太多地方，可多買數張來招待訪客\r\n\r\n可以輕鬆移動椅凳到你需要的地方，作為額外椅子使用。例如:為訪客提供座位\r\n\r\n10年品質保證，詳情請參閱品質保證單張\r\n\r\n可做為擱腳凳、座椅或在上面放置托盤，當作桌子使用\r\n\r\n布套經過處理，讓飛濺物質不會滲入纖維；而是停留在表面，用乾布一抹即能清潔，簡單容易\r\n\r\n布套以Tonerud製造。它是一種柔軟的聚酯纖維，表面光滑，而且帶有兩種混色效果', 3, 12, 24, 44, 41, 0, 1799, 1799, 400, NULL, NULL, NULL, NULL, '2025-01-27'),
 (189, 'FLINTAN 辦公椅', '提供10年品質保證；欲知更多細則，請參閱品質保證書\r\n\r\n可另購扶手，以紓緩手臂和肩膀的壓力\r\n\r\n輪腳外層為橡膠材質，可在任何材質的地板上滑順移動\r\n\r\n高椅背，圓弧造型，可為下背部提供良好支撐，避免感到疲累，讓你用放鬆的姿勢舒適久坐\r\n\r\n傾斜功能在椅背處於直立位置時可鎖定，增加穩定度\r\n\r\n布套可拆下放入機洗，常保乾淨清新\r\n\r\n適合辦公室使用\r\n\r\n人體工學設計，功能眾多，可輕鬆貼合你的身形\r\n\r\n同步傾斜機械裝置讓辦公椅和你的身軀同步移動。 當身軀往後傾斜時，靠背較座位的移動幅度更大，讓軀幹/臀部張開， 幫助血液循環和提升活力\r\n\r\n座椅高度可調整，讓背部與大腿成90度\r\n\r\n當你站起來時，輪腳會自動鎖著，讓椅子保持原位，不會溜走\r\n\r\n輪腳設計讓椅子在地毯、硬地，甚至是凹凸不平的地面也能輕鬆移動\r\n\r\n備有自動傾斜張力，以你的體重決定靠背的阻力。 這種抗壓力功能，能幫你在坐下去時維持良好的姿態\r\n\r\n當身軀傾斜時，同步傾斜機械能讓你的雙腳緊貼地板但視線仍然可以向著前方。 可伸展胸部又不會給大腿添加壓力，從而幫助血液循環', 3, 13, 24, 46, 58, 71, 2199, 2199, 800, NULL, NULL, NULL, NULL, '2025-01-27'),
 (190, 'FLINTAN 辦公椅附扶手', '提供10年品質保證；欲知更多細則，請參閱品質保證書\r\n\r\n輪腳外層為橡膠材質，可在任何材質的地板上滑順移動\r\n\r\n布套可拆下用洗衣機洗滌，常保乾淨\r\n\r\n高椅背，圓弧造型，可為下背部提供良好支撐，避免感到疲累，讓你用放鬆的姿勢舒適久坐\r\n\r\n傾斜功能在椅背處於直立位置時可鎖定，增加穩定度\r\n\r\n適合辦公室使用\r\n\r\n人體工學設計，功能眾多，可輕鬆貼合你的身形\r\n\r\n同步傾斜機械裝置讓辦公椅和你的身軀同步移動。 當身軀往後傾斜時，靠背較座位的移動幅度更大，讓軀幹/臀部張開， 幫助血液循環和提升活力\r\n\r\n座椅高度可調整，讓背部與大腿成90度\r\n\r\n當你站起來時，輪腳會自動鎖著，讓椅子保持原位，不會溜走\r\n\r\n輪腳設計讓椅子在地毯、硬地，甚至是凹凸不平的地面也能輕鬆移動\r\n\r\n扶手為你的前臂上半部分提供足夠的支撐，並能減少長時間會議，背部和肩膀承受的壓力\r\n\r\n備有自動傾斜張力，以你的體重決定靠背的阻力。 這種抗壓力功能，能幫你在坐下去時維持良好的姿態\r\n\r\n當身軀傾斜時，同步傾斜機械能讓你的雙腳緊貼地板但視線仍然可以向著前方。 可伸展胸部又不會給大腿添加壓力，從而幫助血液循環', 3, 13, 24, 71, 58, 71, 2699, 2699, 1000, NULL, NULL, NULL, NULL, '2025-01-27'),
 (194, 'HUVUDSPELARE 電競椅', '椅背的網眼材質可讓空氣流通，久坐也能感到舒適\r\n\r\n附安全輪腳，具有感壓煞車裝置，起身時可固定椅子，坐下後自動鬆開鎖定\r\n\r\n可調整座椅高度，讓你坐得更舒適\r\n\r\n內置腰部支撐設計，為背部提供適當支撐，有效釋放壓力\r\n\r\n這張辦公椅可以調校傾斜的張力，配合你的姿勢、慣常動作和體重\r\n\r\n同步的座椅和靠背傾斜度可配合身體的移動，亦可將椅子調校到正確的位置', 3, 14, 25, 60, 113, 54, 1999, 1999, 600, NULL, NULL, NULL, NULL, '2025-01-27'),
@@ -571,7 +571,9 @@ INSERT INTO `product` (`productid`, `productname`, `productdescription`, `mainca
 (256, 'RULLERUM 雙人座沙發附電動躺椅', '沙發的椅背較高，且提供腰部支撐，讓你全身放鬆，即使久坐也很舒適。\r\n扶手椅框和躺椅模組分別有10年和5年的品質保證。\r\n沙發和躺椅二合為一，以產業用物料製造，加上內置電動躺椅裝置，任何時刻都給你好享受', 4, 17, 9, 184, 98, 94, 24900, 24900, 15000, NULL, NULL, NULL, NULL, '2025-02-01'),
 (257, 'HEMLINGBY 雙人座沙發', '精巧外形，容易搭配佈置，適合小空間使用', 4, 17, 9, 145, 72, 72, 4799, 4799, NULL, NULL, NULL, NULL, NULL, '2025-02-01'),
 (258, 'SKÖNABÄCK 雙人座沙發床', '布套以Knisa原液染色聚酯纖維製造，耐用物料，觸感柔軟\r\n\r\n舒適誘人的沙發床，隱藏著出色功能，將收納和睡眠空間合二為一', 4, 17, 9, 158, 74, 51, 8990, 8990, 6900, NULL, NULL, NULL, NULL, '2025-02-02'),
-(259, 'HYLTARP 雙人座沙發', '精湛的工藝，加上完美的尺寸考量，讓沙發隨時都能展示最好的一面\r\n\r\n高回彈泡棉柔軟舒適，獨立筒彈簧則可為身體提供貼身承托，讓你隨意坐臥閒聊', 4, 17, 9, 93, 91, 182, 16900, 16900, 14000, NULL, NULL, NULL, NULL, '2025-02-02');
+(259, 'HYLTARP 雙人座沙發', '精湛的工藝，加上完美的尺寸考量，讓沙發隨時都能展示最好的一面\r\n\r\n高回彈泡棉柔軟舒適，獨立筒彈簧則可為身體提供貼身承托，讓你隨意坐臥閒聊', 4, 17, 9, 93, 91, 182, 16900, 16900, 14000, NULL, NULL, NULL, NULL, '2025-02-02'),
+(260, 'TORALD/SMÄLLEN 書桌及椅子', '經測試，適合日常使用，符合EN 12521及EN 1730的耐用和穩定性標準', 3, 11, 14, 79, 37, 42, 1348, 1348, 600, NULL, NULL, NULL, NULL, '2025-02-03'),
+(261, 'TERTIAL 檯燈/閱讀燈/工作燈', '檯燈, 閱讀燈, 工作燈', 5, 21, 5, 56, 12, 17, 349, 349, 200, NULL, NULL, NULL, NULL, '2025-02-03');
 
 -- --------------------------------------------------------
 
@@ -580,11 +582,11 @@ INSERT INTO `product` (`productid`, `productname`, `productdescription`, `mainca
 --
 
 CREATE TABLE `productcolors` (
-  `colorsid` int NOT NULL,
-  `productid` int DEFAULT NULL,
-  `colorname` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `stock` int NOT NULL,
-  `minstock` int DEFAULT NULL,
+  `colorsid` int(11) NOT NULL,
+  `productid` int(11) DEFAULT NULL,
+  `colorname` varchar(50) DEFAULT NULL,
+  `stock` int(11) NOT NULL,
+  `minstock` int(11) DEFAULT NULL,
   `updateat` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -856,7 +858,10 @@ INSERT INTO `productcolors` (`colorsid`, `productid`, `colorname`, `stock`, `min
 (263, 258, '黃綠色', 10, 10, '2025-02-02'),
 (264, 258, '亮藍色', 5, 10, '2025-02-02'),
 (265, 259, '自然色', 4, 10, '2025-02-02'),
-(266, 259, '灰棕色', 1, 10, '2025-02-02');
+(266, 259, '灰棕色', 1, 10, '2025-02-02'),
+(267, 260, '白色/黑色', 40, 10, '2025-02-03'),
+(268, 261, '白色', 63, 10, '2025-02-03'),
+(269, 261, '深灰色', 41, 10, '2025-02-03');
 
 -- --------------------------------------------------------
 
@@ -865,10 +870,10 @@ INSERT INTO `productcolors` (`colorsid`, `productid`, `colorname`, `stock`, `min
 --
 
 CREATE TABLE `productimages` (
-  `imageid` int NOT NULL,
-  `productid` int DEFAULT NULL,
-  `colorsid` int DEFAULT NULL,
-  `imageurl` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `imageid` int(11) NOT NULL,
+  `productid` int(11) DEFAULT NULL,
+  `colorsid` int(11) DEFAULT NULL,
+  `imageurl` varchar(1000) DEFAULT NULL,
   `isprimary` tinyint(1) DEFAULT NULL,
   `updatedat` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -1621,7 +1626,13 @@ INSERT INTO `productimages` (`imageid`, `productid`, `colorsid`, `imageurl`, `is
 (742, 259, 265, 'https://www.ikea.com.tw/dairyfarm/tw/images/937/1193786_PE901614_S4.webp', 1, '2025-02-02'),
 (743, 259, 265, 'https://www.ikea.com.tw/dairyfarm/tw/images/937/1193785_PE901613_S4.webp', 0, '2025-02-02'),
 (744, 259, 266, 'https://www.ikea.com.tw/dairyfarm/tw/images/937/1193796_PE901606_S4.webp', 1, '2025-02-02'),
-(745, 259, 266, 'https://www.ikea.com.tw/dairyfarm/tw/images/937/1193795_PE901623_S4.webp', 0, '2025-02-02');
+(745, 259, 266, 'https://www.ikea.com.tw/dairyfarm/tw/images/937/1193795_PE901623_S4.webp', 0, '2025-02-02'),
+(746, 260, 267, 'https://www.ikea.com.tw/dairyfarm/tw/images/155/1115579_PE872140_S4.webp', 1, NULL),
+(747, 260, 267, 'https://www.ikea.com.tw/dairyfarm/tw/images/155/1115595_PE872151_S4.webp', 0, NULL),
+(748, 261, 268, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/0609308_PE684439_S4.webp', 1, '2025-02-03'),
+(749, 261, 268, 'https://www.ikea.com.tw/dairyfarm/tw/images/862/1286246_PE933515_S4.webp', 0, '2025-02-03'),
+(750, 261, 269, 'https://www.ikea.com.tw/dairyfarm/tw/images/093/0609306_PE684440_S4.webp', 1, '2025-02-03'),
+(751, 261, 269, 'https://www.ikea.com.tw/dairyfarm/tw/images/791/0879117_PE622662_S4.webp', 0, '2025-02-03');
 
 -- --------------------------------------------------------
 
@@ -1630,13 +1641,13 @@ INSERT INTO `productimages` (`imageid`, `productid`, `colorsid`, `imageurl`, `is
 --
 
 CREATE TABLE `reviews` (
-  `reviewid` int NOT NULL,
-  `memberid` int DEFAULT NULL,
-  `productid` int DEFAULT NULL,
-  `rating` int NOT NULL,
-  `content` text COLLATE utf8mb4_general_ci,
-  `orderid` int DEFAULT NULL,
-  `colorsid` int DEFAULT NULL,
+  `reviewid` int(11) NOT NULL,
+  `memberid` int(11) DEFAULT NULL,
+  `productid` int(11) DEFAULT NULL,
+  `rating` int(11) NOT NULL,
+  `content` text DEFAULT NULL,
+  `orderid` int(11) DEFAULT NULL,
+  `colorsid` int(11) DEFAULT NULL,
   `issubmitted` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -1853,9 +1864,9 @@ INSERT INTO `reviews` (`reviewid`, `memberid`, `productid`, `rating`, `content`,
 --
 
 CREATE TABLE `sales` (
-  `salesid` int NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `salesdesc` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `salesid` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `salesdesc` varchar(100) DEFAULT NULL,
   `discount` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -1875,9 +1886,9 @@ INSERT INTO `sales` (`salesid`, `name`, `salesdesc`, `discount`) VALUES
 --
 
 CREATE TABLE `shiprate` (
-  `shiprateid` int NOT NULL,
-  `region` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rate` int DEFAULT NULL
+  `shiprateid` int(11) NOT NULL,
+  `region` varchar(50) DEFAULT NULL,
+  `rate` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -1913,10 +1924,10 @@ INSERT INTO `shiprate` (`shiprateid`, `region`, `rate`) VALUES
 --
 
 CREATE TABLE `subcategory` (
-  `subcategoryid` int NOT NULL,
-  `maincategoryid` int DEFAULT NULL,
-  `categoryname` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `subcategoryid` int(11) NOT NULL,
+  `maincategoryid` int(11) DEFAULT NULL,
+  `categoryname` varchar(100) NOT NULL,
+  `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -1957,13 +1968,13 @@ INSERT INTO `subcategory` (`subcategoryid`, `maincategoryid`, `categoryname`, `s
 --
 
 CREATE TABLE `suppliers` (
-  `supplierid` int NOT NULL,
-  `subcategoryid` int DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `phone` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contact` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `supplierid` int(11) NOT NULL,
+  `subcategoryid` int(11) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `contact` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -2004,13 +2015,13 @@ INSERT INTO `suppliers` (`supplierid`, `subcategoryid`, `name`, `address`, `phon
 --
 
 CREATE TABLE `website` (
-  `websiteid` int NOT NULL,
-  `websitename` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `aboutus` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `qa` varchar(2000) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `logo` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `footerinstagramlink` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `footerfacebooklink` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `websiteid` int(11) NOT NULL,
+  `websitename` varchar(50) DEFAULT NULL,
+  `aboutus` varchar(500) DEFAULT NULL,
+  `qa` varchar(2000) DEFAULT NULL,
+  `logo` varchar(300) DEFAULT NULL,
+  `footerinstagramlink` varchar(100) DEFAULT NULL,
+  `footerfacebooklink` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -2175,121 +2186,121 @@ ALTER TABLE `website`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `autochat`
 --
 ALTER TABLE `autochat`
-  MODIFY `autochatid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `autochatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `cartsid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `cartsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `finance`
 --
 ALTER TABLE `finance`
-  MODIFY `financeid` int NOT NULL AUTO_INCREMENT;
+  MODIFY `financeid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `incomestatement`
 --
 ALTER TABLE `incomestatement`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logistics`
 --
 ALTER TABLE `logistics`
-  MODIFY `logisticsid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `logisticsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `maincategory`
 --
 ALTER TABLE `maincategory`
-  MODIFY `maincategoryid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `maincategoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `members`
 --
 ALTER TABLE `members`
-  MODIFY `memberid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `memberid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `message`
 --
 ALTER TABLE `message`
-  MODIFY `messageid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `messageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mykeep`
 --
 ALTER TABLE `mykeep`
-  MODIFY `mykeepid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `mykeepid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `orderdetailid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `orderdetailid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `productid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=260;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `productcolors`
 --
 ALTER TABLE `productcolors`
-  MODIFY `colorsid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=267;
+  MODIFY `colorsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `productimages`
 --
 ALTER TABLE `productimages`
-  MODIFY `imageid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=746;
+  MODIFY `imageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=752;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `reviewid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
+  MODIFY `reviewid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `salesid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `salesid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `shiprate`
 --
 ALTER TABLE `shiprate`
-  MODIFY `shiprateid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `shiprateid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `subcategoryid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `subcategoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `supplierid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `supplierid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `website`
 --
 ALTER TABLE `website`
-  MODIFY `websiteid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `websiteid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 已傾印資料表的限制式
