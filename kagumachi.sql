@@ -244,7 +244,8 @@ CREATE TABLE `orderdetails` (
   `orderid` int DEFAULT NULL,
   `productid` int DEFAULT NULL,
   `colorsid` int DEFAULT NULL,
-  `quantity` int NOT NULL
+  `quantity` int NOT NULL,
+  `price` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
