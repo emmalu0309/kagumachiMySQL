@@ -58,21 +58,21 @@ CREATE TABLE `carts` (
 CREATE TABLE `orders` (
   `orderid` int(10) PRIMARY KEY AUTO_INCREMENT,
   `memberid` int(10),
-  `orderstatus` varchar(50),
-  `paymentmethod` varchar(100),
-  `shippingmethod` varchar(100),
+  `recipient` varchar(100),
   `ordercity` varchar(100),
+  `district` varchar(100),
+  `address` varchar(100),
+  `phone` varchar(100),
+  `totalprice` double NOT NULL,
+  `shippingmethod` varchar(100),
+  `paymentmethod` varchar(100),
+  `orderstatus` varchar(50),
   `orderdate` date NOT NULL,
   `deliverydate` date,
-  `totalprice` double NOT NULL,
-  `logisticsid` int(10),
-  `logisticsnumber` varchar(100),
   `estimateddeliverydate` datetime,
   `orderserial` varchar(100),
-  `district` varchar(100),
-  `phone` varchar(100),
-  `address` varchar(100),
-  `recipient` varchar(100)
+  `logisticsid` int(10),
+  `logisticsnumber` varchar(100)
 );
 
 CREATE TABLE `orderdetails` (
